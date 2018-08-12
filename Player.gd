@@ -3,8 +3,8 @@ extends KinematicBody2D
 
 const ACCELERATION = 50
 const MAX_SPEED = 200
-const DUCT_TAPE_COOLDOWN = 0.4
-const CEMENT_COOLDOWN = 3
+const DUCT_TAPE_COOLDOWN = 0.8
+const CEMENT_COOLDOWN = 3.3
 
 var motion = Vector2()
 var cement_clock = 0
@@ -64,8 +64,13 @@ func _physics_process(delta):
 		$AnimatedSprite.play("walk_up")
 
 	if !moving:
+		if $StepSound.playing:
+			$StepSound.stop()
 		$AnimatedSprite.play("idle")
-		
+	else:
+		if !$StepSound.playing:
+			$StepSound.play()
+			
 	motion.x = lerp(motion.x, 0, 0.2)
 	motion.y = lerp(motion.y, 0, 0.2)
 	

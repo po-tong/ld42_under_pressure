@@ -2,7 +2,7 @@
 
 [ext_resource path="res://StartScreen.gd" type="Script" id=1]
 
-[node name="StartScreen" type="CanvasLayer"]
+[node name="StartScreen" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -35,7 +35,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 398.0
+margin_right = 406.0
 margin_bottom = 216.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -52,9 +52,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -26.0
-margin_right = 398.0
-margin_bottom = -12.0
+margin_right = 406.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -75,7 +74,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 18.0
-margin_right = 398.0
+margin_right = 406.0
 margin_bottom = 168.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -84,13 +83,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 text = "Oh No! There has been an accident.
-Something in the under water research facility exploded.
+Something in the MURF Underwater Research Facility exploded.
 And now the walls of your lab are succumbing to the pressure.
 Stay alive till the rescue team come and get you out.
 
 WASD to move
 Stand next to damaged wall to either
-1) duct tape it to delay degredation
+1) duct tape it to delay degradation
 2) put brace on it to restore wall integrity"
 align = 1
 percent_visible = 1.0
@@ -100,14 +99,13 @@ _sections_unfolded = [ "Grow Direction", "Margin" ]
 
 [node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -21.0
-margin_top = -35.0
-margin_right = 20.0
-margin_bottom = -15.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 172.0
+margin_right = 406.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -126,14 +124,13 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
 [node name="ExitGame" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
 
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -3.0
-margin_right = 17.0
-margin_bottom = 17.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 196.0
+margin_right = 406.0
+margin_bottom = 216.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2

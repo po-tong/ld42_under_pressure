@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cracking.wav-a7624eefaaaf006e9a62eb2663cdce04.sample"
+
+[deps]
+
+source_file="res://sound/cracking.wav"
+dest_files=[ "res://.import/cracking.wav-a7624eefaaaf006e9a62eb2663cdce04.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

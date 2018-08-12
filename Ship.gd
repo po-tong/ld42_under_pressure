@@ -13,13 +13,13 @@ signal decay_walls
 
 func _process(delta):
 	second_passed += delta
-	var clean_up_these_wall = []
-	var neighboring_walls = []
-	if (second_passed > TICK_RATE):
-		for damaged_wall in dying_walls:
-			emit_signal("decay_walls")
+	# var clean_up_these_wall = []
+	# var neighboring_walls = []
+#	if (second_passed > TICK_RATE):
+#		for damaged_wall in dying_walls:
+#			emit_signal("decay_walls")
 			
-		second_passed = 0
+#		second_passed = 0
 
 #	for item in neighboring_walls:
 #		if !has_floor_around(item):

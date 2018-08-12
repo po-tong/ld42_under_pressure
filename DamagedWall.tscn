@@ -1,36 +1,100 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://DamagedWall.gd" type="Script" id=1]
 [ext_resource path="res://DuctTape.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/tiles/selected.png" type="Texture" id=3]
 [ext_resource path="res://sprites/duct_taped.png" type="Texture" id=4]
 [ext_resource path="res://Area2D.gd" type="Script" id=5]
+[ext_resource path="res://sound/cracking.wav" type="AudioStream" id=6]
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 16.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.5
+gravity = Vector3( 0, 0, -98 )
+initial_velocity = 45.0
+initial_velocity_random = 1.0
+angular_velocity = 25.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 0, 0, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Spread", "Trail" ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="DamagedWall" type="Node2D" index="0"]
+[node name="DamagedWall" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform" ]
 DuctTape = ExtResource( 2 )
 
-[node name="SelectedSprite" type="Sprite" parent="." index="0"]
+[node name="Sparks" type="Particles2D" parent="." index="0"]
+
+position = Vector2( 32, 32 )
+emitting = false
+amount = 128
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.5
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="SelectedSprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="DuctTapeSprite" type="Sprite" parent="." index="1"]
+[node name="DuctTapeSprite" type="Sprite" parent="." index="2"]
 
 visible = false
 texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
+[node name="Area2D" type="Area2D" parent="." index="3"]
 
 position = Vector2( 32, 32 )
 input_pickable = true
@@ -48,6 +112,58 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 
 visible = false
 shape = SubResource( 1 )
+
+[node name="_debug_seconds_passed" type="Label" parent="." index="4"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "test"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="_debug_damage" type="Label" parent="." index="5"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -14.0
+margin_right = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CrackingSound" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="player_apply_cement" from="Area2D" to="." method="_on_Area2D_player_apply_cement"]
 
