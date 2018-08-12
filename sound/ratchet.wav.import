@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ratchet.wav-a7dead66e0713edf4b6bc0852f3158b8.sample"
+
+[deps]
+
+source_file="res://sound/ratchet.wav"
+dest_files=[ "res://.import/ratchet.wav-a7dead66e0713edf4b6bc0852f3158b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

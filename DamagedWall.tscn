@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://DamagedWall.gd" type="Script" id=1]
+[ext_resource path="res://DuctTape.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/tiles/selected.png" type="Texture" id=3]
+[ext_resource path="res://sprites/duct_taped.png" type="Texture" id=4]
+[ext_resource path="res://Area2D.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="DamagedWall" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform" ]
+DuctTape = ExtResource( 2 )
+
+[node name="SelectedSprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="DuctTapeSprite" type="Sprite" parent="." index="1"]
+
+visible = false
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+position = Vector2( 32, 32 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+visible = false
+shape = SubResource( 1 )
+
+[connection signal="player_apply_cement" from="Area2D" to="." method="_on_Area2D_player_apply_cement"]
+
+[connection signal="player_apply_duct_tape" from="Area2D" to="." method="_on_Area2D_player_apply_duct_tape"]
+
+[connection signal="wall_selected" from="Area2D" to="." method="_on_Area2D_wall_selected"]
+
+
