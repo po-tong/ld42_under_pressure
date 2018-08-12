@@ -7,7 +7,7 @@
 [ext_resource path="res://Area2D.gd" type="Script" id=5]
 [ext_resource path="res://sound/cracking.wav" type="AudioStream" id=6]
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
@@ -47,12 +47,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Spread", "Trail" ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="DamagedWall" type="Node2D"]
+[node name="DamagedWall" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform" ]
@@ -74,7 +74,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 2 )
+process_material = SubResource( 1 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -111,10 +111,11 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="_debug_seconds_passed" type="Label" parent="." index="4"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -137,6 +138,7 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="_debug_damage" type="Label" parent="." index="5"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

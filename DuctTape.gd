@@ -10,8 +10,6 @@ var remaining_time = MAX_HEALTH
 signal duct_tape_expired(duct_tape)
 
 func apply_decay():
-	print(self)
-	print(remaining_time)
 	remaining_time -= DECAY_RATE
 	if remaining_time <= 0:
 		emit_signal("duct_tape_expired", self)

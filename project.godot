@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="New Game Project"
+config/name="Under Pressure (LD42)"
 run/main_scene="res://StartScreen.tscn"
 config/icon="res://icon.png"
 
@@ -56,4 +56,5 @@ player_get_cement=[ Object(InputEventKey,"resource_local_to_scene":false,"resour
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
